@@ -75,3 +75,6 @@ or edit <code>remote.yml</code> and specify <code>group-name</code> instead of <
     - RHEL OS family ver. 8
     - ssh/root access
     - Python3
+
+# Warning
+This is remediation tool which automatically fix Managed nodes OS settings to pass security audit.

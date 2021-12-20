@@ -1,0 +1,51 @@
+---
+# defaults file for CIS-RHEL8_demo
+
+
+task1_cis_1_1_1 : true
+
+task1_cis_1_1_1_1 : true
+task1_cis_1_1_1_2 : true
+task1_cis_1_1_1_3 : true
+task1_cis_1_1_1_4 : true
+
+task2_cis_2_3   : true
+
+task2_cis_2_3_1 : true
+task2_cis_2_3_2 : true
+task2_cis_2_3_3 : true
+
+task3_cis_4_2_1 : true
+
+task3_cis_4_2_1_2 : true
+task3_cis_4_2_1_3 : true
+task3_cis_4_2_1_4 : true
+task3_cis_4_2_1_5 : true
+task3_cis_4_2_1_6 : true
+
+
+
+rhel8cis_level_1: true
+rhel8cis_level_2: true
+
+rhel8cis_selinux_disable: false
+rhel8cis_legacy_boot: false
+
+rhel8cis_openldap_clients_required: false
+rhel8cis_telnet_required: false
+rhel8cis_talk_required: false
+rhel8cis_rsh_required: false
+rhel8cis_ypbind_required: false
+
+## Python Binary
+## This is used for python3 Installations where python2 OS modules are used in ansible
+python2_bin: /bin/python2.7
+
+rhel8cis_rsyslog_ansiblemanaged: true
+
+# RHEL-08-4.2.1.4/4.2.1.5 remote and destation log server name
+rhel8cis_remote_log_server: logagg.example.com
+
+# RHEL-08-4.2.1.5
+rhel8cis_system_is_log_server: false
+

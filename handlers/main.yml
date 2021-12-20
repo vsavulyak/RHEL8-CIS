@@ -1,0 +1,14 @@
+---
+# handlers file for CIS-RHEL8_demo
+
+- name: restart rsyslog
+  become: yes
+  service:
+      name: rsyslog
+      state: restarted
+
+- name: restart syslog-ng
+  become: yes
+  service:
+      name: syslog-ng
+      state: restarted

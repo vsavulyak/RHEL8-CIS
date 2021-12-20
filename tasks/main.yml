@@ -1,0 +1,38 @@
+---
+# tasks file for CIS-RHEL8_demo
+- name: Check OS version and family
+  fail:
+      msg: "This role can only be run against RHEL 8. {{ ansible_distribution }} {{ ansible_distribution_major_version }} is not supported."
+  when:
+  - ansible_os_family == 'RedHat'
+  - ansible_distribution_major_version is version_compare('8', '!=')
+  tags:
+  - always
+
+- name: Check ansible version
+  fail:
+      msg: You must use ansible 2.9 or greater
+  when: not ansible_version.full is version_compare('2.9', '>=')
+  tags:
+  - always
+
+
+- name: Gather the package facts
+  package_facts:
+      manager: auto
+  tags:
+  - always
+
+
+- include: cis_1.1.1/main.yml
+  become: yes
+  when: task1_cis_1_1_1
+  
+- include: cis_2.3/main.yml
+  become: yes
+  when: task2_cis_2_3
+  
+- include: cis_4.2.1/main.yml
+  become: yes
+  when: task3_cis_4_2_1
+

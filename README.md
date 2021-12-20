@@ -35,29 +35,30 @@ task3_cis_4_2_1_4 : true     #  4.2.1.3 Ensure rsyslog Service is enabled (Autom
 task3_cis_4_2_1_5 : true     #  4.2.1.4 Ensure rsyslog default file permissions configured (Automated)
 task3_cis_4_2_1_6 : true     #  4.2.1.5 Ensure logging is configured (Manual)
 ```
-To start patch **Localhost** run:
+To start patch <code>localhost</code> run:
 ```
 ansible-playbook localhost.yml
 ```
-To start patch **Remote** hosts add hosts 
-to inventory file hosts.txt, for example:
+To start patch <code>remote</code> hosts add hosts 
+to inventory file <code>hosts.txt</code>,   
+*for example*:
 ```yml
 [host-group1]
 alias-PC1 ansible_host=172.16.1.10 ansible_user=myuser ansible_ssh_pass=myuserpwd ansible_sudo_pass=rootpwd
 ```
-or specify another inventory filename instead of hosts.txt in ansible.cfg:  
+or specify another inventory filename instead of <code>hosts.txt</code> in the config file <code>ansible.cfg</code>:  
 ```yaml
 [defaults]
 # ...
 inventory         = ./hosts.txt
 # ...
 ```
-and run (by default will be applied for **all host-groups** listed in this file ):
+and run (by default will be applied for <code>all</code> host-groups listed in this file ):
 ```
 ansible-playbook remote.yml
 ```
-or edit remote.yml and specify group-name instead of **all**  
-for example run it only for host-group1
+or edit <code>remote.yml</code> and specify <code>group-name</code> instead of <code>all</code>  
+*for example run it only for <code>host-group1</code>*
 ```yaml
 ---
 - hosts: host-group1
@@ -66,3 +67,11 @@ for example run it only for host-group1
   roles:
       - role: "{{ playbook_dir }}"
 ```
+# Requirements 
+  - Control node:
+    - Linux OS
+    - Ansible 2.9+
+  - Managed nodes:
+    - RHEL OS family ver. 8
+    - ssh/root access
+    - Python3
